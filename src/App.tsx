@@ -8,7 +8,10 @@ import i18n from 'i18next';
 function App() {
   const { t } = useTranslation();
   const toggle = () => {
-    i18n.changeLanguage('en')
+    const currentLan = localStorage.getItem('language');
+    const toggleLan = currentLan === 'en' ? 'zh' : 'en';
+    i18n.changeLanguage(toggleLan)
+    localStorage.setItem('language', toggleLan);
   }
   return (
     <div className="App">
