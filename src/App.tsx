@@ -1,17 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './i18n';
+import i18nInit, {toggleLanguage} from './i18n';
 import { useTranslation } from 'react-i18next';
-import i18n from 'i18next';
+
+i18nInit();
 
 function App() {
   const { t } = useTranslation();
   const toggle = () => {
-    const currentLan = localStorage.getItem('language');
-    const toggleLan = currentLan === 'en' ? 'zh' : 'en';
-    i18n.changeLanguage(toggleLan)
-    localStorage.setItem('language', toggleLan);
+    toggleLanguage()
   }
   return (
     <div className="App">
